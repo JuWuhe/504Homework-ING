@@ -10,7 +10,7 @@ public:
         this->row = r;
         this->col = c;
         m = new int[row*col];
-        cout<<"请输入该矩阵元素:" << endl;
+        cout<<"璇疯緭鍏ヨ鐭╅樀鍏冪礌:" << endl;
         for(int i = 0;i<row;i++){
             for(int j = 0;j<col;j++){
                 cin >> m[i*col+j];
@@ -67,10 +67,10 @@ Matrix& operator+(Matrix&m1,Matrix&m2){
 int main()
 {
 	int row_a,col_a,row_b,col_b;
-	cout<<"请输入am矩阵的行数和列数:"<<endl;
+	cout<<"璇疯緭鍏m鐭╅樀鐨勮鏁板拰鍒楁暟:"<<endl;
 	cin>>row_a>>col_a;
 	Matrix am(row_a,col_a);
-	cout<<"请输入bm矩阵的行数和列数:"<<endl;
+	cout<<"璇疯緭鍏m鐭╅樀鐨勮鏁板拰鍒楁暟:"<<endl;
 	cin>>row_b>>col_b;
 	Matrix bm(row_b,col_b),cm;
 	cout<<"am:"<<endl;
