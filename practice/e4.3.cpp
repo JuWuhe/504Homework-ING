@@ -1,17 +1,18 @@
 #include<iostream>
 #include<fstream>
+#include<string.h>
 using namespace std;
 
 class Student{
-    string num;
-    string name;
-    string sex;
+    char num[20];
+    char name[20];
+    char sex[20];
     int score;
 public:
-    Student(string nu="",string na="",string se="",int s=0){
-        num = nu;
-        name = na;
-        sex = se;
+    Student(char* nu="",char* na="",char* se="",int s=0){
+        strcpy(num,nu);
+        strcpy(name,na);
+        strcpy(sex,se);
         score = s;
     }
     friend ostream & operator <<(ostream &out,const Student &s);
@@ -22,7 +23,7 @@ ostream &operator<<(ostream &out,const Student &s){
     return out;
 }
 
-void CreatBiFile(string filename){
+void CreatBiFile(const string filename){
     ofstream out(filename);
     out.clear();
     Student stu[3] = {Student("B1903xxx","张三","男",80),Student("B1903xxx","李四","男",60),Student("B1903xxx","王二麻","女",90)};
@@ -32,14 +33,17 @@ void CreatBiFile(string filename){
 }
 
 
-void ReadBiFile(string filename){
-	Student stu;
+void ReadBiFile(const string filename){
+	Student stu[3];
 	ifstream in(filename);
+    int i = 0;
 	while (!in.eof())
 	{
-		in.read((char *)&stu, sizeof(Student));
-        cout << stu;
+		in.read((char *)&stu[i++], sizeof(Student));
 	}
+    for(int j = 0;j<i-1;j++){ // i-1是因为eof前有个空格
+        cout << stu[j];
+    }
 	in.close();
 }
 
