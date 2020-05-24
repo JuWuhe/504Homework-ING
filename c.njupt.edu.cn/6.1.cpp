@@ -11,6 +11,6 @@ int main(){
     double a,b;
     std::cin >> a >> b;
     swap(a,b);
-    std::cout << a << " " << b;
+    std::cout << a << " " << b << std::endl;
     return 0;
 }
